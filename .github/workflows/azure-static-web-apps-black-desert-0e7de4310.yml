@@ -5,7 +5,7 @@ on:
     branches:
       - prod-env
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [closed]
     branches:
       - prod-env
 
