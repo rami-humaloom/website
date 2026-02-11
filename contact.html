@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Humaloom — Book a Demo or Get in Touch</title>
+    <meta name="description" content="Questions about Humaloom? Book a demo, ask about our 60-day free trial, or just say hello. We're happy to share insights, even if you're just exploring.">
+    <meta property="og:title" content="Contact Humaloom — Book a Demo or Get in Touch">
+    <meta property="og:description" content="Book a demo or reach out with questions. 60-day free trial available for early customers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://humaloom.ai/contact">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#4F46E5',600:'#4338ca',700:'#3730a3',800:'#312e81',900:'#1e1b4b' },
+                    accent: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10B981',600:'#059669',700:'#047857' },
+                    slate: { 50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a' }
+                },
+                fontFamily: { heading:['Poppins','sans-serif'], body:['DM Sans','sans-serif'] },
+            }
+        }
+    }
+    </script>
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; }
+        .fade-up { opacity:0; transform:translateY(30px); transition:opacity .7s ease-out,transform .7s ease-out; }
+        .fade-up.visible { opacity:1; transform:translateY(0); }
+        .nav-fixed { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .mobile-drawer { transform:translateX(100%); transition:transform .3s ease-in-out; }
+        .mobile-drawer.open { transform:translateX(0); }
+        .drawer-overlay { opacity:0; pointer-events:none; transition:opacity .3s ease-in-out; }
+        .drawer-overlay.open { opacity:1; pointer-events:auto; }
+        .nav-link.active { color:#4F46E5; }
+        .nav-link.active::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:2px; background:#4F46E5; border-radius:1px; }
+        .hero-gradient { background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(79,70,229,.08) 0%,transparent 60%),linear-gradient(180deg,#f8fafc 0%,#fff 100%); }
+        .grain::before { content:''; position:absolute; inset:0; opacity:.03; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; }
+        .input-focus:focus { border-color: #4F46E5; box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+        .form-error { display: none; color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; }
+        .form-error.show { display: block; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <header class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-white/90 border-b border-slate-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+            <div class="flex items-center justify-between h-16 lg:h-18">
+                <a href="index.html" class="flex items-center gap-2" aria-label="Humaloom Home">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <span class="font-heading font-bold text-xl text-slate-900">Humaloom</span>
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Home</a>
+                    <a href="how-it-works.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">How It Works</a>
+                    <a href="about.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">About</a>
+                    <a href="contact.html" class="nav-link active relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Contact</a>
+                    <a href="contact.html" class="inline-flex items-center px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-all shadow-sm hover:shadow-md">Book a Demo</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Open menu" aria-expanded="false">
+                    <svg class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="drawer-overlay" class="drawer-overlay fixed inset-0 bg-slate-900/40 z-50"></div>
+    <div id="mobile-drawer" class="mobile-drawer fixed top-0 right-0 bottom-0 w-72 bg-white shadow-2xl z-50 p-6" role="dialog" aria-label="Mobile navigation">
+        <div class="flex justify-end mb-8">
+            <button id="drawer-close" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Close menu">
+                <svg class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+            <a href="index.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">Home</a>
+            <a href="how-it-works.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">How It Works</a>
+            <a href="about.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">About</a>
+            <a href="contact.html" class="text-brand-500 font-semibold text-lg px-3 py-2 rounded-lg bg-brand-50">Contact</a>
+            <a href="contact.html" class="mt-4 inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-all">Book a Demo</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-gradient relative pt-28 pb-8 lg:pt-36 lg:pb-12 grain overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="fade-up">
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl leading-tight text-slate-900 mb-4">Questions About <span class="text-brand-500">Humaloom?</span></h1>
+                    <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">Get in touch! We're happy to share insights, even if you're just exploring.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form + Sidebar -->
+        <section class="py-12 lg:py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-5 gap-10 lg:gap-16">
+                    <!-- Form Column -->
+                    <div class="lg:col-span-3 fade-up">
+                        <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+                            <h2 class="font-heading font-bold text-2xl text-slate-900 mb-6">Send Us a Message</h2>
+                            <div id="contact-form">
+                                <div class="space-y-5">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-slate-700 mb-1.5">Name <span class="text-red-400">*</span></label>
+                                        <input type="text" id="name" name="name" required
+                                            class="input-focus w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 bg-slate-50 placeholder-slate-400 outline-none transition-all"
+                                            placeholder="Your full name">
+                                        <p class="form-error" id="name-error">Please enter your name.</p>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-slate-700 mb-1.5">Email <span class="text-red-400">*</span></label>
+                                        <input type="email" id="email" name="email" required
+                                            class="input-focus w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 bg-slate-50 placeholder-slate-400 outline-none transition-all"
+                                            placeholder="you@company.com">
+                                        <p class="form-error" id="email-error">Please enter a valid email address.</p>
+                                    </div>
+                                    <div>
+                                        <label for="company" class="block text-sm font-medium text-slate-700 mb-1.5">Company Name</label>
+                                        <input type="text" id="company" name="company"
+                                            class="input-focus w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 bg-slate-50 placeholder-slate-400 outline-none transition-all"
+                                            placeholder="Your company">
+                                    </div>
+                                    <div>
+                                        <label for="message" class="block text-sm font-medium text-slate-700 mb-1.5">Message <span class="text-red-400">*</span></label>
+                                        <textarea id="message" name="message" rows="5" required
+                                            class="input-focus w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-800 bg-slate-50 placeholder-slate-400 outline-none transition-all resize-y"
+                                            placeholder="Tell us about your team and what you're looking for..."></textarea>
+                                        <p class="form-error" id="message-error">Please enter a message.</p>
+                                    </div>
+                                    <button type="button" id="submit-btn"
+                                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-all shadow-lg shadow-brand-500/20 text-base">
+                                        Send Message
+                                        <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+                                    </button>
+                                </div>
+                                <!-- Success Message -->
+                                <div id="success-msg" class="hidden mt-6 bg-accent-50 border border-accent-200 rounded-xl p-5 text-center">
+                                    <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <svg class="w-6 h-6 text-accent-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                    </div>
+                                    <p class="text-accent-800 font-semibold text-lg">Message sent!</p>
+                                    <p class="text-accent-600 text-sm mt-1">We'll get back to you within one business day.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="lg:col-span-2 space-y-6 fade-up">
+                        <!-- Contact Info -->
+                        <div class="bg-slate-50 rounded-2xl p-7 border border-slate-100">
+                            <h3 class="font-heading font-semibold text-lg text-slate-900 mb-4">Reach Us Directly</h3>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                                </div>
+                                <div>
+                                    <a href="mailto:contact@humaloom.ai" class="text-brand-600 font-medium hover:text-brand-700 transition-colors">contact@humaloom.ai</a>
+                                </div>
+                            </div>
+                            <p class="text-slate-500 text-sm">Prefer email? Reach us directly at the address above. We typically respond within one business day.</p>
+                        </div>
+
+                        <!-- Special Offer -->
+                        <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl p-7 text-white relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <svg class="w-5 h-5 text-accent-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 3.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L8.414 9H10a3 3 0 013 3v1a1 1 0 102 0v-1a5 5 0 00-5-5H8.414l1.293-1.293z" clip-rule="evenodd"/></svg>
+                                    <h3 class="font-heading font-semibold text-lg">Early Customer Offer</h3>
+                                </div>
+                                <p class="text-brand-100 leading-relaxed mb-3">60-day free trial + lifetime discounted pricing for qualifying companies.</p>
+                                <p class="text-brand-200 text-sm">For eligibility and details, include "Early Customer" in your message.</p>
+                            </div>
+                        </div>
+
+                        <!-- Demo Booking -->
+                        <div class="bg-slate-50 rounded-2xl p-7 border border-slate-100">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-accent-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                                </div>
+                                <h3 class="font-heading font-semibold text-lg text-slate-900">Schedule a Demo</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4">Want to see Humaloom in action? Book a 20-minute walkthrough at a time that works for you.</p>
+                            <a href="#" class="inline-flex items-center text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors">
+                                Open Scheduling Page
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 pb-8 border-b border-slate-800">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-4">
+                        <div class="w-7 h-7 rounded-lg bg-brand-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                        <span class="font-heading font-bold text-lg text-white">Humaloom</span>
+                    </a>
+                    <p class="text-sm leading-relaxed">The future of L&D is personalized, engaging, and scalable.</p>
+                </div>
+                <div>
+                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Quick Links</h4>
+                    <nav class="flex flex-col gap-2" aria-label="Footer navigation">
+                        <a href="index.html" class="text-sm hover:text-white transition-colors">Home</a>
+                        <a href="how-it-works.html" class="text-sm hover:text-white transition-colors">How It Works</a>
+                        <a href="about.html" class="text-sm hover:text-white transition-colors">About</a>
+                        <a href="contact.html" class="text-sm hover:text-white transition-colors">Contact</a>
+                        <a href="#privacypolicy" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="LinkedIn"><svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="X (Twitter)"><svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                    </div>
+                    <p class="text-sm mt-4">contact@humaloom.ai</p>
+                </div>
+            </div>
+            <div class="pt-6 text-center">
+                <p class="text-xs text-slate-500">&copy; <span id="footer-year"></span> Humaloom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Mobile drawer
+        const menuToggle=document.getElementById('menu-toggle'),drawerOverlay=document.getElementById('drawer-overlay'),mobileDrawer=document.getElementById('mobile-drawer'),drawerClose=document.getElementById('drawer-close');
+        function openDrawer(){mobileDrawer.classList.add('open');drawerOverlay.classList.add('open');menuToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+        function closeDrawer(){mobileDrawer.classList.remove('open');drawerOverlay.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+        menuToggle.addEventListener('click',openDrawer);drawerClose.addEventListener('click',closeDrawer);drawerOverlay.addEventListener('click',closeDrawer);
+
+        // Scroll animations
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+        // Form validation
+        const submitBtn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('success-msg');
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showError(id) {
+            document.getElementById(id).classList.add('show');
+        }
+        function hideError(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        submitBtn.addEventListener('click', function() {
+            let valid = true;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Reset errors
+            hideError('name-error');
+            hideError('email-error');
+            hideError('message-error');
+
+            if (!name) { showError('name-error'); valid = false; }
+            if (!email || !validateEmail(email)) { showError('email-error'); valid = false; }
+            if (!message) { showError('message-error'); valid = false; }
+
+            if (valid) {
+                // Simulate form submission
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                setTimeout(() => {
+                    document.querySelectorAll('#contact-form .space-y-5')[0].style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                    submitBtn.style.display = 'none';
+                }, 800);
+            }
+        });
+
+        // Real-time validation clearing
+        ['name','email','message'].forEach(field => {
+            document.getElementById(field).addEventListener('input', () => hideError(field + '-error'));
+        });
+    </script>
+</body>
+</html>
