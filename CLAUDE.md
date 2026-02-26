@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the Humaloom marketing website — a static HTML site for an AI-powered L&D (Learning & Development) SaaS product targeting lean HR teams at SMBs. There is no build system, no package manager, and no framework.
+This is the Humaloom marketing website — a static HTML site for an AI-powered L&D (Learning & Development) SaaS product targeting lean HR teams at SMBs.
 
 ## Architecture
 
-Pure static HTML with no build step:
+Pure static HTML. Tailwind CSS is built locally and committed as a static asset — there is no runtime build step:
 
 - `index.html` — Home/landing page
 - `how-it-works.html` — Product walkthrough page
@@ -16,8 +16,12 @@ Pure static HTML with no build step:
 - `contact.html` — Demo booking / contact page
 - `404.html` — Custom 404 page
 - `staticwebapp.config.json` — Azure Static Web Apps routing and security headers config
+- `tailwind.config.js` — Tailwind theme config (colors, fonts)
+- `assets/css/input.css` — Tailwind directives (`@tailwind base/components/utilities`)
+- `assets/css/output.css` — **Generated and committed.** Run `npm run build` to regenerate after changing HTML classes.
+- `package.json` — Dev dependency (`tailwindcss ^3`) and build/watch scripts
 
-**Styling:** Tailwind CSS loaded via CDN (`https://cdn.tailwindcss.com`). The Tailwind config (custom colors, fonts) is inlined in a `<script>` block at the top of each HTML file. No separate CSS files.
+**Styling:** Tailwind CSS built locally via the Tailwind CLI. Each HTML file links to `/assets/css/output.css`. The shared theme config lives in `tailwind.config.js` — do not inline Tailwind config in HTML files.
 
 **Fonts:** Poppins (headings, `font-heading`) and DM Sans (body, `font-body`) from Google Fonts.
 
@@ -33,10 +37,12 @@ Pure static HTML with no build step:
 ## Deployment
 
 Deployed to Azure Static Web Apps. CI/CD pipeline triggers on push to the `prod-env` branch (not `main`). To deploy:
-1. Merge/push changes to the `prod-env` branch
-2. The GitHub Actions workflow (`.github/workflows/azure-static-web-apps-black-desert-0e7de4310.yml`) handles deployment automatically
+1. Run `npm run build` to regenerate `assets/css/output.css` (required if any Tailwind classes changed)
+2. Commit the updated `output.css`
+3. Merge/push changes to the `prod-env` branch
+4. The GitHub Actions workflow (`.github/workflows/azure-static-web-apps-black-desert-0e7de4310.yml`) handles deployment automatically (`skip_app_build: true` — no server-side build)
 
-There is no local dev server or build step — open HTML files directly in a browser to preview, or use any static file server (e.g., `npx serve .`).
+For local development: open HTML files directly in a browser, or use `npx serve .`. Use `npm run watch` to auto-rebuild CSS while editing.
 
 ## Conventions
 
