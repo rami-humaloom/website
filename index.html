@@ -12,55 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    brand: {
-                        50: '#eef2ff',
-                        100: '#e0e7ff',
-                        200: '#c7d2fe',
-                        300: '#a5b4fc',
-                        400: '#818cf8',
-                        500: '#4F46E5',
-                        600: '#4338ca',
-                        700: '#3730a3',
-                        800: '#312e81',
-                        900: '#1e1b4b',
-                    },
-                    accent: {
-                        50: '#ecfdf5',
-                        100: '#d1fae5',
-                        200: '#a7f3d0',
-                        300: '#6ee7b7',
-                        400: '#34d399',
-                        500: '#10B981',
-                        600: '#059669',
-                        700: '#047857',
-                    },
-                    slate: {
-                        50: '#f8fafc',
-                        100: '#f1f5f9',
-                        200: '#e2e8f0',
-                        300: '#cbd5e1',
-                        400: '#94a3b8',
-                        500: '#64748b',
-                        600: '#475569',
-                        700: '#334155',
-                        800: '#1e293b',
-                        900: '#0f172a',
-                    }
-                },
-                fontFamily: {
-                    heading: ['Poppins', 'sans-serif'],
-                    body: ['DM Sans', 'sans-serif'],
-                },
-            }
-        }
-    }
-    </script>
+    <link rel="stylesheet" href="/assets/css/output.css">
+    <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="/assets/images/logo.jpeg">
     <style>
         body { font-family: 'DM Sans', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
@@ -173,11 +127,7 @@
             <div class="flex items-center justify-between h-16 lg:h-18">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-2 group" aria-label="Humaloom Home">
-                    <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                    </div>
+                    <img src="/assets/images/logo.jpeg" alt="" class="w-8 h-8 rounded-lg" aria-hidden="true">
                     <span class="font-heading font-bold text-xl text-slate-900">Humaloom</span>
                 </a>
 
@@ -187,7 +137,7 @@
                     <a href="how-it-works.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">How It Works</a>
                     <a href="about.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">About</a>
                     <a href="contact.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Contact</a>
-                    <a href="contact.html" class="inline-flex items-center px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-all shadow-sm hover:shadow-md">
+                    <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-all shadow-sm hover:shadow-md">
                         Book a Demo
                     </a>
                 </div>
@@ -217,7 +167,7 @@
             <a href="how-it-works.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">How It Works</a>
             <a href="about.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">About</a>
             <a href="contact.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">Contact</a>
-            <a href="contact.html" class="mt-4 inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-all">
+            <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-all">
                 Book a Demo
             </a>
         </nav>
@@ -233,14 +183,14 @@
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                             60-day free trial for early customers
                         </div>
-                        <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-[3.25rem] leading-tight text-slate-900 mb-6">
-                            Your team deserves real L&D. <span class="text-brand-500">Your budget says otherwise.</span>
+                        <h1 class="font-heading font-extrabold text-4xl lg:text-[3.25rem] leading-tight text-slate-900 mb-6">
+                            Everyone says 'Invest in your people'. <span class="text-brand-500">The reality? Limited time, tighter budgets, infinite demands.</span>
                         </h1>
                         <p class="text-lg sm:text-xl text-slate-600 leading-relaxed mb-8 max-w-lg">
-                            Humaloom gives lean HR teams enterprise-level personalized training — without the enterprise price tag.
+                            Humaloom gives your team the power to deliver training that sticks - and people who stay. Hyper-personalized to each skill gap, designed for busy teams, and built to drive measurable business impact.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="contact.html" class="inline-flex items-center justify-center px-7 py-3.5 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-all shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/30 text-base">
+                            <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-7 py-3.5 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-all shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/30 text-base">
                                 Book a Demo
                                 <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
@@ -259,7 +209,7 @@
                                 </div>
                                 <span class="text-xs text-slate-400 ml-2">Humaloom Dashboard</span>
                             </div>
-                            <img src="https://placehold.co/640x400/f8fafc/4F46E5?text=Personalized+Learning+Dashboard" alt="Humaloom personalized learning dashboard showing employee training paths" class="w-full">
+                            <img src="/assets/images/hero-dashboard.jpg" alt="Personalized Learning Dashboard" class="w-full">
                         </div>
                         <div class="absolute -bottom-4 -right-4 bg-accent-500 text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-lg">
                             60% higher engagement
@@ -326,7 +276,7 @@
                     <div class="fade-up quote-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
                         <p class="text-white/90 text-lg leading-relaxed mb-6 pl-6">"I don't have a budget or a team but I want to invest in developing my employees."</p>
                         <div class="flex items-center gap-3 pl-6">
-                            <div class="w-10 h-10 rounded-full bg-brand-400/30 flex items-center justify-center text-white font-semibold text-sm">HR</div>
+                            <div class="w-10 h-10 rounded-full bg-brand-400/30 flex items-center justify-center text-white font-semibold text-sm">EM</div>
                             <div>
                                 <p class="text-white font-medium text-sm">HR Manager</p>
                                 <p class="text-brand-300 text-sm">Retail, 85 employees</p>
@@ -336,7 +286,7 @@
                     <div class="fade-up quote-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
                         <p class="text-white/90 text-lg leading-relaxed mb-6 pl-6">"Between onboarding, compliance, and daily HR tasks, building training programs is always the thing that gets pushed to next quarter."</p>
                         <div class="flex items-center gap-3 pl-6">
-                            <div class="w-10 h-10 rounded-full bg-accent-400/30 flex items-center justify-center text-white font-semibold text-sm">HD</div>
+                            <div class="w-10 h-10 rounded-full bg-accent-400/30 flex items-center justify-center text-white font-semibold text-sm">NG</div>
                             <div>
                                 <p class="text-white font-medium text-sm">HR Director</p>
                                 <p class="text-brand-300 text-sm">SMB, 120 employees</p>
@@ -346,7 +296,7 @@
                     <div class="fade-up quote-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
                         <p class="text-white/90 text-lg leading-relaxed mb-6 pl-6">"Leadership wants proof that training moves the needle. Completion rates aren't cutting it anymore."</p>
                         <div class="flex items-center gap-3 pl-6">
-                            <div class="w-10 h-10 rounded-full bg-purple-400/30 flex items-center justify-center text-white font-semibold text-sm">LD</div>
+                            <div class="w-10 h-10 rounded-full bg-purple-400/30 flex items-center justify-center text-white font-semibold text-sm">LJ</div>
                             <div>
                                 <p class="text-white font-medium text-sm">L&D Lead</p>
                                 <p class="text-brand-300 text-sm">Manufacturing, 200 employees</p>
@@ -362,37 +312,55 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 lg:mb-16 fade-up">
                     <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mb-4">How It Works</h2>
-                    <p class="text-lg text-slate-500 max-w-2xl mx-auto">Three steps. No IT department required. No course-building needed..</p>
+                    <p class="text-lg text-slate-500 max-w-2xl mx-auto">Four steps. No IT department required. No course-building needed.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8 stagger">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger">
                     <!-- Step 1 -->
                     <div class="fade-up text-center relative">
                         <div class="w-14 h-14 bg-brand-500 rounded-2xl flex items-center justify-center text-white font-heading font-bold text-xl mx-auto mb-6 shadow-lg shadow-brand-500/20">1</div>
                         <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 mb-5">
-                            <img src="https://placehold.co/320x200/f1f5f9/4F46E5?text=Upload+Content" alt="Upload your training materials to Humaloom" class="w-full rounded-lg">
+                            <div class="h-48 overflow-hidden rounded-lg">
+                                <img src="/assets/images/step-upload.jpg" alt="Upload your training materials to Humaloom" class="w-full">
+                            </div>
                         </div>
                         <h3 class="font-heading font-semibold text-xl text-slate-900 mb-2">Upload</h3>
                         <p class="text-slate-600">Upload your existing training materials, videos, documents, and company knowledge.</p>
-                        <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-gradient-to-r from-brand-300 to-transparent"></div>
+                        <div class="hidden lg:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-gradient-to-r from-brand-300 to-transparent"></div>
                     </div>
                     <!-- Step 2 -->
                     <div class="fade-up text-center relative">
                         <div class="w-14 h-14 bg-brand-500 rounded-2xl flex items-center justify-center text-white font-heading font-bold text-xl mx-auto mb-6 shadow-lg shadow-brand-500/20">2</div>
                         <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 mb-5">
-                            <img src="https://placehold.co/320x200/f1f5f9/10B981?text=AI+Personalizes" alt="Humaloom AI personalizes content for each employee" class="w-full rounded-lg">
+                            <div class="h-48 overflow-hidden rounded-lg">
+                                <img src="/assets/images/step-analyze.jpg" alt="Humaloom AI analyzing and structuring training content" class="w-full">
+                            </div>
                         </div>
-                        <h3 class="font-heading font-semibold text-xl text-slate-900 mb-2">Humaloom Personalizes</h3>
-                        <p class="text-slate-600">AI adapts learning to each employee's role, style, pace, and career goals.</p>
-                        <div class="hidden md:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-gradient-to-r from-brand-300 to-transparent"></div>
+                        <h3 class="font-heading font-semibold text-xl text-slate-900 mb-2">Analyze</h3>
+                        <p class="text-slate-600">Humaloom AI turns your existing content into structured personalized learning - built for your workforce and your company’s unique culture.</p>
+                        <div class="hidden lg:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-gradient-to-r from-brand-300 to-transparent"></div>
                     </div>
                     <!-- Step 3 -->
-                    <div class="fade-up text-center">
+                    <div class="fade-up text-center relative">
                         <div class="w-14 h-14 bg-brand-500 rounded-2xl flex items-center justify-center text-white font-heading font-bold text-xl mx-auto mb-6 shadow-lg shadow-brand-500/20">3</div>
                         <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 mb-5">
-                            <img src="https://placehold.co/320x200/f1f5f9/6366f1?text=Track+ROI" alt="Track real training ROI with Humaloom analytics" class="w-full rounded-lg">
+                            <div class="h-48 overflow-hidden rounded-lg">
+                                <img src="/assets/images/step-personalize.jpg" alt="Humaloom AI personalizes content for each skill gap/employee" class="w-full">
+                            </div>
                         </div>
-                        <h3 class="font-heading font-semibold text-xl text-slate-900 mb-2">Track Real ROI</h3>
-                        <p class="text-slate-600">See metrics that matter: performance improvement, retention, and time-to-competency.</p>
+                        <h3 class="font-heading font-semibold text-xl text-slate-900 mb-2">Personalize</h3>
+                        <p class="text-slate-600">The learning paths map directly to what your business needs - no generic content, but targeted growth where it matters most.</p>
+                        <div class="hidden lg:block absolute top-7 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-gradient-to-r from-brand-300 to-transparent"></div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="fade-up text-center">
+                        <div class="w-14 h-14 bg-brand-500 rounded-2xl flex items-center justify-center text-white font-heading font-bold text-xl mx-auto mb-6 shadow-lg shadow-brand-500/20">4</div>
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 mb-5">
+                            <div class="h-48 overflow-hidden rounded-lg">
+                                <img src="/assets/images/step-roi.jpg" alt="Track real training ROI with Humaloom analytics" class="w-full">
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl text-slate-900 mb-2">Track</h3>
+                        <p class="text-slate-600">See metrics that matter: from time-to-competency and retention to the KPIs that drive your bottom line.</p>
                     </div>
                 </div>
             </div>
@@ -434,7 +402,7 @@
                             </svg>
                         </div>
                         <h3 class="font-heading font-semibold text-lg text-slate-900 mb-2">Drives Engagement</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Personalized to each employee's resume, role, and goals. 60% higher engagement.</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Personalized to the skill gaps that matter most, tailored to each employe. 60% higher engagement.</p>
                     </div>
                     <!-- Benefit 4 -->
                     <div class="fade-up card-hover bg-white rounded-2xl p-7 border border-slate-100 shadow-sm">
@@ -459,7 +427,7 @@
                     <div class="relative z-10">
                         <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white mb-4">Stop choosing between quality training and budget constraints</h2>
                         <p class="text-brand-100 text-lg mb-8 max-w-xl mx-auto">60-day free trial + lifetime discounted pricing for early customers.</p>
-                        <a href="contact.html" class="inline-flex items-center px-8 py-4 bg-white text-brand-600 font-bold rounded-xl hover:bg-brand-50 transition-all shadow-lg text-base">
+                        <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 bg-white text-brand-600 font-bold rounded-xl hover:bg-brand-50 transition-all shadow-lg text-base">
                             Book a Demo
                             <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
@@ -478,11 +446,7 @@
             <div class="grid md:grid-cols-3 gap-8 pb-8 border-b border-slate-800">
                 <div>
                     <a href="index.html" class="flex items-center gap-2 mb-4">
-                        <div class="w-7 h-7 rounded-lg bg-brand-500 flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                        </div>
+                        <img src="/assets/images/logo.jpeg" alt="" class="w-8 h-8 rounded-lg" aria-hidden="true">
                         <span class="font-heading font-bold text-lg text-white">Humaloom</span>
                     </a>
                     <p class="text-sm leading-relaxed">The future of L&D is personalized, engaging, and scalable.</p>
