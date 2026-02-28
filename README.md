@@ -10,6 +10,13 @@ Open any `.html` file directly in a browser, or serve the directory:
 npx serve .
 ```
 
+To preview the exact production artifact (what gets deployed to Azure):
+
+```bash
+npm run build
+npx serve dist
+```
+
 ## Making changes
 
 ### HTML / content
@@ -22,19 +29,19 @@ Install dependencies once:
 npm install
 ```
 
-After adding or changing Tailwind utility classes in the HTML, rebuild the CSS:
+After adding or changing Tailwind utility classes in the HTML, rebuild:
 
 ```bash
 npm run build
 ```
 
-While actively editing, use watch mode to rebuild automatically:
+This compiles `assets/css/output.css` and assembles the `dist/` folder. Neither is committed — both are gitignored and regenerated on each build.
+
+While actively editing, use watch mode to rebuild CSS automatically:
 
 ```bash
 npm run watch
 ```
-
-The generated `assets/css/output.css` is committed to the repo — always commit it alongside your HTML changes.
 
 To change the theme (colors, fonts), edit `tailwind.config.js` and rebuild.
 
