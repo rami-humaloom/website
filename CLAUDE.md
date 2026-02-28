@@ -8,7 +8,7 @@ This is the Humaloom marketing website — a static HTML site for an AI-powered 
 
 ## Architecture
 
-Pure static HTML. Tailwind CSS is built locally and committed as a static asset — there is no runtime build step:
+Pure static HTML. Tailwind CSS is compiled locally via the CLI — there is no runtime build step:
 
 - `index.html` — Home/landing page
 - `how-it-works.html` — Product walkthrough page
@@ -18,7 +18,8 @@ Pure static HTML. Tailwind CSS is built locally and committed as a static asset 
 - `staticwebapp.config.json` — Azure Static Web Apps routing and security headers config
 - `tailwind.config.js` — Tailwind theme config (colors, fonts)
 - `assets/css/input.css` — Tailwind directives (`@tailwind base/components/utilities`)
-- `assets/css/output.css` — **Generated and committed.** Run `npm run build` to regenerate after changing HTML classes.
+- `assets/css/output.css` — **Generated, not committed** (gitignored). Run `npm run build` to regenerate after changing HTML classes.
+- `dist/` — **Generated, not committed** (gitignored). Assembled by `npm run build`. Contains only the files served in production (HTML pages, `output.css`, images, `staticwebapp.config.json`).
 - `package.json` — Dev dependency (`tailwindcss ^3`) and build/watch scripts
 
 **Styling:** Tailwind CSS built locally via the Tailwind CLI. Each HTML file links to `/assets/css/output.css`. The shared theme config lives in `tailwind.config.js` — do not inline Tailwind config in HTML files.
@@ -37,12 +38,12 @@ Pure static HTML. Tailwind CSS is built locally and committed as a static asset 
 ## Deployment
 
 Deployed to Azure Static Web Apps. CI/CD pipeline triggers on push to the `prod-env` branch (not `main`). To deploy:
-1. Run `npm run build` to regenerate `assets/css/output.css` (required if any Tailwind classes changed)
-2. Commit the updated `output.css`
-3. Merge/push changes to the `prod-env` branch
-4. The GitHub Actions workflow (`.github/workflows/azure-static-web-apps-black-desert-0e7de4310.yml`) handles deployment automatically (`skip_app_build: true` — no server-side build)
+1. Merge/push changes to the `prod-env` branch
+2. The GitHub Actions workflow (`.github/workflows/azure-static-web-apps-black-desert-0e7de4310.yml`) builds CSS, assembles `dist/`, and deploys it automatically
 
-For local development: open HTML files directly in a browser, or use `npx serve .`. Use `npm run watch` to auto-rebuild CSS while editing.
+The workflow runs `npm run build` (which compiles CSS and assembles `dist/`), then deploys only `dist/` to Azure — keeping build tooling files, source CSS, and internal docs out of the deployment artifact.
+
+For local development: open HTML files directly in a browser, or use `npx serve .`. Use `npm run watch` to auto-rebuild CSS while editing. To preview the exact production artifact locally: run `npm run build` then `npx serve dist`.
 
 ## Conventions
 

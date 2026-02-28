@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "build": "tailwindcss -i assets/css/input.css -o assets/css/output.css --minify",
+    "build": "npm run build:css && npm run build:dist",
+    "build:css": "tailwindcss -i assets/css/input.css -o assets/css/output.css --minify",
+    "build:dist": "rm -rf dist && mkdir -p dist/assets/css && cp index.html how-it-works.html about.html contact.html 404.html staticwebapp.config.json dist/ && cp assets/css/output.css dist/assets/css/ && cp -r assets/images dist/assets/images",
     "watch": "tailwindcss -i assets/css/input.css -o assets/css/output.css --watch"
   },
   "devDependencies": {
