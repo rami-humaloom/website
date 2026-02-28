@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "main": "src/functions/*.js",
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "postmark": "^4.0.2"
+  }
+}
