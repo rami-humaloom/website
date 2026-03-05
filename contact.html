@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Humaloom — Book a Demo or Get in Touch</title>
-    <meta name="description" content="Questions about Humaloom? Book a demo, ask about our 60-day free trial, or just say hello. We're happy to share insights, even if you're just exploring.">
+    <meta name="description" content="Questions about Humaloom? Book a demo, ask about our Early Customer Offer, or just say hello. We're happy to share insights, even if you're just exploring.">
     <meta property="og:title" content="Contact Humaloom — Book a Demo or Get in Touch">
-    <meta property="og:description" content="Book a demo or reach out with questions. 60-day free trial available for early customers.">
+    <meta property="og:description" content="Book a demo or reach out with questions. Early Customer Offer available for eligible companies.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://humaloom.ai/contact">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,8 +170,8 @@
                                     <svg class="w-5 h-5 text-accent-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 3.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L8.414 9H10a3 3 0 013 3v1a1 1 0 102 0v-1a5 5 0 00-5-5H8.414l1.293-1.293z" clip-rule="evenodd"/></svg>
                                     <h3 class="font-heading font-semibold text-lg">Early Customer Offer</h3>
                                 </div>
-                                <p class="text-brand-100 leading-relaxed mb-3">60-day free trial + lifetime discounted pricing for qualifying companies.</p>
-                                <p class="text-brand-200 text-sm">For eligibility and details, include "Early Customer" in your message.</p>
+                                <p class="text-brand-100 leading-relaxed mb-3">Lock in special pricing for qualifying companies.</p>
+                                <p class="text-brand-200 text-sm">For eligibility and details, include "Early Customer Offer" in your message.</p>
                             </div>
                         </div>
 
@@ -232,6 +232,10 @@
 
     <script>
         document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Pre-fill message from URL param (e.g. from banner link)
+        const urlMsg = new URLSearchParams(window.location.search).get('message');
+        if (urlMsg) document.getElementById('message').value = urlMsg;
 
         // Mobile drawer
         const menuToggle=document.getElementById('menu-toggle'),drawerOverlay=document.getElementById('drawer-overlay'),mobileDrawer=document.getElementById('mobile-drawer'),drawerClose=document.getElementById('drawer-close');
