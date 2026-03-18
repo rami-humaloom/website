@@ -59,9 +59,29 @@ Blog post pages live in `blog/` and follow a consistent structure. To add a new 
 
 2. **Update `blog.html`** — add a new card in the "More Articles" grid (or promote to featured). Fill in title, description, category badge, date, read time, and `href="blog/<slug>.html"`. Remove the empty placeholder slot if used. Add `data-category="<slug>"` to the `<article>` element so the filter buttons work. Current slugs: `smb-training`, `training-roi`. To add a new category, also add a corresponding `<button data-filter="<slug>">` in the Topic Filters section of `blog.html`.
 
-3. **Update related posts on other pages** — if the new post is related to existing ones, add it as a related card on those pages too.
+3. **Add the hero image** — place the image in `assets/images/blog/`. Then:
+   - In the post page, add a hero image block between the article header and article body:
+     ```html
+     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+         <img src="/assets/images/blog/<filename>" alt="..." class="w-full rounded-2xl object-cover max-h-96">
+     </div>
+     ```
+   - In `blog.html`, replace the placeholder `<div class="bg-gradient-to-br ...">` in the card with:
+     ```html
+     <div class="h-44 overflow-hidden">
+         <img src="/assets/images/blog/<filename>" alt="..." class="w-full h-full object-cover">
+     </div>
+     ```
+   - In related article cards on other post pages, replace the same placeholder div with:
+     ```html
+     <div class="h-36 overflow-hidden">
+         <img src="/assets/images/blog/<filename>" alt="..." class="w-full h-full object-cover">
+     </div>
+     ```
 
-4. **Run `npm run build`** to verify the build succeeds and the new file appears in `dist/blog/`.
+4. **Update related posts on other pages** — if the new post is related to existing ones, add it as a related card on those pages too (with its image).
+
+5. **Run `npm run build`** to verify the build succeeds and the new file appears in `dist/blog/`.
 
 **Path conventions for `blog/` pages:**
 - Nav/footer links use `../` prefix (e.g. `../index.html`, `../blog.html`)
