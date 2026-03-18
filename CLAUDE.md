@@ -45,6 +45,37 @@ The workflow runs `npm run build` (which compiles CSS and assembles `dist/`), th
 
 For local development: open HTML files directly in a browser, or use `npx serve .`. Use `npm run watch` to auto-rebuild CSS while editing. To preview the exact production artifact locally: run `npm run build` then `npx serve dist`.
 
+## Adding a New Blog Post
+
+Blog post pages live in `blog/` and follow a consistent structure. To add a new post:
+
+1. **Create `blog/<slug>.html`** — copy an existing post (e.g. `blog/why-smb-training-fails.html`) as the starting point. Update:
+   - `<title>`, `<meta name="description">`, `og:title`, `og:description`, `og:url`
+   - The category badge text and color (`bg-brand-50 text-brand-600` for SMB Training/Training ROI, `bg-accent-50 text-accent-700` for Frontline Learning)
+   - `<h1>`, subhead `<p>`, publish date, and read time in the article header
+   - The full article body
+   - The soft CTA text and link
+   - The 2 related post cards at the bottom (titles, dates, read times, and `href` values)
+
+2. **Update `blog.html`** — add a new card in the "More Articles" grid (or promote to featured). Fill in title, description, category badge, date, read time, and `href="blog/<slug>.html"`. Remove the empty placeholder slot if used. Add `data-category="<slug>"` to the `<article>` element so the filter buttons work. Current slugs: `smb-training`, `training-roi`. To add a new category, also add a corresponding `<button data-filter="<slug>">` in the Topic Filters section of `blog.html`.
+
+3. **Update related posts on other pages** — if the new post is related to existing ones, add it as a related card on those pages too.
+
+4. **Run `npm run build`** to verify the build succeeds and the new file appears in `dist/blog/`.
+
+**Path conventions for `blog/` pages:**
+- Nav/footer links use `../` prefix (e.g. `../index.html`, `../blog.html`)
+- Cross-links between posts use filename only (e.g. `fix-smb-training.html`)
+- Asset paths (`/assets/css/output.css`, `/assets/images/logo.jpeg`) are already absolute — no change needed
+
+**Blog post page structure (in order):**
+1. Nav + mobile drawer (Blog link marked active)
+2. Article header: back link, category badge, `<h1>`, subhead, date + read time
+3. Article body in `max-w-3xl mx-auto` column
+4. Soft CTA box (`bg-brand-50 border border-brand-100 rounded-2xl`)
+5. Related articles section (2-up grid, `bg-slate-50`)
+6. Footer
+
 ## Conventions
 
 - The Tailwind config block is duplicated in each HTML file's `<head>`. When adding new custom colors or fonts, update all pages.

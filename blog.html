@@ -160,25 +160,24 @@
             </div>
         </section>
 
-        <!-- Topic Filters -->
-        <section class="py-8 bg-white border-b border-slate-100">
+        <!-- Topic Filters (hidden until more posts are added) -->
+        <section class="py-8 bg-white border-b border-slate-100 hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="fade-up flex flex-wrap gap-2 justify-center">
-                    <button class="px-4 py-2 rounded-full text-sm font-medium bg-brand-500 text-white transition-colors">All</button>
-                    <button class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600 transition-colors">SMB Training</button>
-                    <button class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600 transition-colors">Frontline Learning</button>
-                    <button class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600 transition-colors">Training ROI</button>
+                    <button data-filter="all" class="px-4 py-2 rounded-full text-sm font-medium bg-brand-500 text-white transition-colors">All</button>
+                    <button data-filter="smb-training" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600 transition-colors">SMB Training</button>
+<button data-filter="training-roi" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600 transition-colors">Training ROI</button>
                 </div>
             </div>
         </section>
 
         <!-- Featured Article -->
-        <section class="py-12 lg:py-16 bg-white">
+        <section id="featured-section" class="py-12 lg:py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="fade-up mb-8">
                     <h2 class="font-heading font-semibold text-xs text-slate-400 uppercase tracking-widest">Featured Article</h2>
                 </div>
-                <article class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <article data-category="smb-training" class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
                     <div class="grid lg:grid-cols-2">
                         <!-- Placeholder image -->
                         <div class="bg-gradient-to-br from-slate-100 to-slate-200 min-h-64 lg:min-h-full flex items-center justify-center">
@@ -189,20 +188,20 @@
                         <!-- Content -->
                         <div class="p-8 lg:p-10 flex flex-col justify-center">
                             <div class="inline-flex items-center self-start bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                                Training ROI
+                                SMB Training
                             </div>
                             <h2 class="font-heading font-bold text-2xl lg:text-3xl text-slate-900 mb-4 leading-snug">
-                                Why SMB Training Programs Fail (And What Actually Works)
+                                Why SMB Training Programs Fail: 5 Common Reasons
                             </h2>
                             <p class="text-slate-500 leading-relaxed mb-6">
-                                Most small businesses invest in training programs built for large enterprises. The result: wasted hours, low completion rates, and zero measurable impact. Here's what lean HR teams actually need instead.
+                                Most SMB training programs look fine on paper and fail in practice. Here's what's really going wrong—and what you can do about it without spending more.
                             </p>
                             <div class="flex items-center gap-4 text-xs text-slate-400 mb-6">
                                 <span>March 15, 2026</span>
                                 <span>&middot;</span>
-                                <span>6 min read</span>
+                                <span>5 min read</span>
                             </div>
-                            <a href="#" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
+                            <a href="blog/why-smb-training-fails.html" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
                                 Read Article
                                 <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -215,46 +214,15 @@
         </section>
 
         <!-- Article Grid -->
-        <section class="pb-16 lg:pb-24 bg-white">
+        <section id="grid-section" class="pb-16 lg:pb-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="fade-up mb-8">
+                <div id="grid-heading" class="fade-up mb-8">
                     <h2 class="font-heading font-semibold text-xs text-slate-400 uppercase tracking-widest">More Articles</h2>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6 stagger">
 
                     <!-- Post #2 -->
-                    <article class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
-                        <div class="bg-gradient-to-br from-slate-100 to-slate-200 h-44 flex items-center justify-center">
-                            <svg class="w-10 h-10 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <div class="inline-flex items-center self-start bg-accent-50 text-accent-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                                Frontline Learning
-                            </div>
-                            <h3 class="font-heading font-semibold text-lg text-slate-900 mb-2 leading-snug">
-                                The Hidden Cost of Unstructured Frontline Onboarding
-                            </h3>
-                            <p class="text-slate-500 text-sm leading-relaxed mb-4 flex-1">
-                                Skipping structured onboarding costs more than most managers realize. Here's how to fix it fast.
-                            </p>
-                            <div class="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                                <span>March 8, 2026</span>
-                                <span>&middot;</span>
-                                <span>4 min read</span>
-                            </div>
-                            <a href="#" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
-                                Read Article
-                                <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Post #3 -->
-                    <article class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                    <article data-category="smb-training" class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
                         <div class="bg-gradient-to-br from-slate-100 to-slate-200 h-44 flex items-center justify-center">
                             <svg class="w-10 h-10 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -265,17 +233,48 @@
                                 SMB Training
                             </div>
                             <h3 class="font-heading font-semibold text-lg text-slate-900 mb-2 leading-snug">
-                                5 Signs Your L&amp;D Strategy Is Overengineered for Your Team Size
+                                How SMBs Can Fix Training Without Making It Longer or More Expensive
                             </h3>
                             <p class="text-slate-500 text-sm leading-relaxed mb-4 flex-1">
-                                Complexity isn't depth. Find out if your training program is working against you.
+                                Better training doesn't mean more training. Here are five practical fixes that actually work—without bigger budgets or longer sessions.
+                            </p>
+                            <div class="flex items-center gap-3 text-xs text-slate-400 mb-4">
+                                <span>March 8, 2026</span>
+                                <span>&middot;</span>
+                                <span>5 min read</span>
+                            </div>
+                            <a href="blog/fix-smb-training.html" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
+                                Read Article
+                                <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Post #3 -->
+                    <article data-category="training-roi" class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                        <div class="bg-gradient-to-br from-slate-100 to-slate-200 h-44 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="inline-flex items-center self-start bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                                Training ROI
+                            </div>
+                            <h3 class="font-heading font-semibold text-lg text-slate-900 mb-2 leading-snug">
+                                How SMBs Can Tell Whether Training Is Actually Working
+                            </h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4 flex-1">
+                                Completion rates don't tell you if training works. Here's a simple framework for measuring what actually matters.
                             </p>
                             <div class="flex items-center gap-3 text-xs text-slate-400 mb-4">
                                 <span>March 1, 2026</span>
                                 <span>&middot;</span>
-                                <span>5 min read</span>
+                                <span>4 min read</span>
                             </div>
-                            <a href="#" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
+                            <a href="blog/measure-training-effectiveness.html" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
                                 Read Article
                                 <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -288,6 +287,10 @@
                     <div class="fade-up hidden md:block"></div>
 
                 </div>
+
+                <!-- Empty state — shown when no posts match the active filter -->
+                <p id="no-posts-message" class="hidden text-center text-slate-400 py-16">No posts in this category yet.</p>
+
             </div>
         </section>
 
@@ -393,6 +396,43 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Topic filters
+        const filterBtns = document.querySelectorAll('[data-filter]');
+        const featuredSection = document.getElementById('featured-section');
+        const gridHeading = document.getElementById('grid-heading');
+        const noPostsMessage = document.getElementById('no-posts-message');
+        const allArticles = document.querySelectorAll('article[data-category]');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                // Update button active states
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-500', 'text-white');
+                    b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-600', 'hover:border-brand-300', 'hover:text-brand-600');
+                });
+                btn.classList.add('bg-brand-500', 'text-white');
+                btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600', 'hover:border-brand-300', 'hover:text-brand-600');
+
+                // Show/hide articles
+                allArticles.forEach(article => {
+                    const match = filter === 'all' || article.dataset.category === filter;
+                    article.style.display = match ? '' : 'none';
+                });
+
+                // Hide featured section if its article is filtered out
+                const featuredArticle = featuredSection.querySelector('article');
+                featuredSection.style.display = featuredArticle.style.display === 'none' ? 'none' : '';
+
+                // Count visible grid articles
+                const gridArticles = document.querySelectorAll('#grid-section article[data-category]');
+                const visibleGridCount = [...gridArticles].filter(a => a.style.display !== 'none').length;
+                gridHeading.style.display = visibleGridCount === 0 ? 'none' : '';
+                noPostsMessage.classList.toggle('hidden', visibleGridCount > 0 || filter === 'all');
+            });
+        });
     </script>
 
 </body>
