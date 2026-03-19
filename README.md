@@ -7,14 +7,14 @@ Static marketing site for Humaloom. Pure HTML + Tailwind CSS.
 Open any `.html` file directly in a browser, or serve the directory:
 
 ```bash
-npx serve .
+npx serve . -l 59000
 ```
 
 To preview the exact production artifact (what gets deployed to Azure):
 
 ```bash
 npm run build
-npx serve dist
+npx serve dist -l 59000
 ```
 
 ## Making changes

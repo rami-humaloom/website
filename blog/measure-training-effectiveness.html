@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Measure Training Effectiveness: A Simple Guide for Businesses — Humaloom</title>
+    <meta name="description" content="Completion rates don't tell you if training works. Here's a simple framework businesses can use to measure what actually matters.">
+    <meta property="og:title" content="How to Measure Training Effectiveness: A Simple Guide for Businesses">
+    <meta property="og:description" content="Completion rates don't tell you if training works. Here's a simple framework businesses can use to measure what actually matters.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://humaloom.ai/blog/measure-training-effectiveness.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/output.css">
+    <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="/assets/images/logo.jpeg">
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger > .fade-up:nth-child(1) { transition-delay: 0.1s; }
+        .stagger > .fade-up:nth-child(2) { transition-delay: 0.2s; }
+        .stagger > .fade-up:nth-child(3) { transition-delay: 0.3s; }
+        .stagger > .fade-up:nth-child(4) { transition-delay: 0.4s; }
+
+        .nav-fixed {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .mobile-drawer {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-drawer.open {
+            transform: translateX(0);
+        }
+        .drawer-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .drawer-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(79, 70, 229, 0.12);
+        }
+
+        .nav-link.active {
+            color: #4F46E5;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #4F46E5;
+            border-radius: 1px;
+        }
+
+        details summary { cursor: pointer; }
+        details summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <header class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-white/90 border-b border-slate-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+            <div class="flex items-center justify-between h-16 lg:h-18">
+                <a href="../index.html" class="flex items-center gap-2 group" aria-label="Humaloom Home">
+                    <img src="/assets/images/logo.jpeg" alt="" class="w-8 h-8 rounded-lg" aria-hidden="true">
+                    <span class="font-heading font-bold text-xl text-slate-900">Humaloom</span>
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="../index.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Home</a>
+                    <a href="../how-it-works.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">How It Works</a>
+                    <a href="../about.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">About</a>
+                    <a href="../blog.html" class="nav-link active relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Blog</a>
+                    <a href="../contact.html" class="nav-link relative text-sm font-medium text-slate-600 hover:text-brand-500 transition-colors">Contact</a>
+                    <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-all shadow-sm hover:shadow-md">
+                        Book a Demo
+                    </a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Open menu" aria-expanded="false">
+                    <svg class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="drawer-overlay" class="drawer-overlay fixed inset-0 bg-slate-900/40 z-50" aria-hidden="true"></div>
+    <div id="mobile-drawer" class="mobile-drawer fixed top-0 right-0 bottom-0 w-72 bg-white shadow-2xl z-50 p-6" role="dialog" aria-label="Mobile navigation">
+        <div class="flex justify-end mb-8">
+            <button id="drawer-close" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Close menu">
+                <svg class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-4" aria-label="Mobile navigation">
+            <a href="../index.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">Home</a>
+            <a href="../how-it-works.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">How It Works</a>
+            <a href="../about.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">About</a>
+            <a href="../blog.html" class="text-brand-500 font-semibold text-lg px-3 py-2 rounded-lg bg-brand-50">Blog</a>
+            <a href="../contact.html" class="text-slate-700 font-medium text-lg px-3 py-2 rounded-lg hover:bg-slate-50">Contact</a>
+            <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center px-5 py-3 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-all">
+                Book a Demo
+            </a>
+        </nav>
+    </div>
+
+    <main>
+
+        <!-- Article Header -->
+        <section class="bg-slate-50 pt-28 pb-10 lg:pt-36 lg:pb-14">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="fade-up">
+                    <a href="../blog.html" class="flex items-center w-fit text-sm text-slate-500 hover:text-brand-500 transition-colors mb-6">
+                        <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        Back to Blog
+                    </a>
+                    <div class="inline-flex items-center bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                        Training ROI
+                    </div>
+                    <h1 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight mb-4">
+                        How Businesses Can Tell Whether Training Is Actually Working
+                    </h1>
+                    <p class="text-lg text-slate-500 mb-6">
+                        Completion rates don't tell you if training works. Here's a simple framework for measuring what actually matters.
+                    </p>
+                    <div class="flex items-center gap-3 text-sm text-slate-400">
+                        <span>March 16, 2026</span>
+                        <span>&middot;</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Image -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+            <img src="/assets/images/blog/brett-jordan-make-stuff-happen-unsplash.jpg" alt="How to measure training effectiveness" class="w-full rounded-2xl object-cover max-h-96">
+        </div>
+
+        <!-- Article Body -->
+        <article class="py-12 lg:py-16">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="fade-up">
+
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8">
+                        Let's say your team completed a new customer service training last month. Completion rate: 92%. Looks great in a report. But are your customers actually being served any better?
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-12">
+                        For most SMBs, the honest answer is: "We don't really know." And that's not because leaders don't care. It's because most training measurement starts and stops at the wrong place.
+                    </p>
+
+                    <h2 class="font-heading font-bold text-2xl text-slate-900 mt-10 mb-4">Why Completion Rates Aren't Enough</h2>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-4">
+                        Completion is the most common training metric—and the least meaningful. Nearly half of workers admit to clicking through required training just to mark it done. A 92% completion rate might just mean 92% of people sat in a chair or clicked "next" enough times.
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8">
+                        Meanwhile, ATD research found that while 90% of organizations ask employees whether they liked the training, only 18% look at whether it changed specific metrics on the job. That gap is where training programs quietly fail.
+                    </p>
+
+                    <h2 class="font-heading font-bold text-2xl text-slate-900 mt-10 mb-4">A Better Way to Think About It</h2>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                        You don't need a complicated measurement system. You need to ask better questions at four levels—borrowed from the Kirkpatrick framework, but simplified for real life:
+                    </p>
+
+                    <div class="space-y-5 mb-8">
+                        <div class="bg-slate-50 rounded-xl px-6 py-5">
+                            <p class="font-heading font-semibold text-slate-900 mb-1">Did they engage with it?</p>
+                            <p class="text-slate-600 text-base leading-relaxed">Not just "did they finish" - did they interact, ask questions, or find it relevant to their job?</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl px-6 py-5">
+                            <p class="font-heading font-semibold text-slate-900 mb-1">Did they learn something?</p>
+                            <p class="text-slate-600 text-base leading-relaxed">A short quiz or a confidence check right after training can tell you whether knowledge landed. Measuring confidence alongside knowledge is a better predictor of on-the-job performance than knowledge tests alone.</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl px-6 py-5">
+                            <p class="font-heading font-semibold text-slate-900 mb-1">Did their behavior change?</p>
+                            <p class="text-slate-600 text-base leading-relaxed">This is where most organizations stop measuring, and where the most important signals live. Manager observations, peer feedback, and performance check-ins can all surface whether new skills are being applied. Even informal check-ins count.</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl px-6 py-5">
+                            <p class="font-heading font-semibold text-slate-900 mb-1">Did it move a business number?</p>
+                            <p class="text-slate-600 text-base leading-relaxed">Connect training to outcomes you already track. Are help desk tickets dropping? Is a specific step in the sales process moving faster? Are managers seeing fewer of the same old mistakes? If you can show exact ROI, that's great. But you do not need perfect proof to see impact. A clear positive trend is valuable too.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="font-heading font-bold text-2xl text-slate-900 mt-10 mb-4">What Simple Measurement Looks Like</h2>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                        Picture a 80-person retail company that just rolled out training for store associates on handling online order pickup. Here's what simple measurement could look like:
+                    </p>
+                    <div class="bg-brand-50 border border-brand-100 rounded-xl px-6 py-6 mb-8 space-y-4">
+                        <div>
+                            <p class="font-heading font-semibold text-slate-900 text-sm mb-1">Week 1</p>
+                            <p class="text-slate-700 text-base leading-relaxed">After training, associates answer one quick question: "How confident do you feel preparing and handing off pickup orders correctly?"</p>
+                        </div>
+                        <div>
+                            <p class="font-heading font-semibold text-slate-900 text-sm mb-1">Week 4</p>
+                            <p class="text-slate-700 text-base leading-relaxed">Store managers note one thing during regular observation: "Is this associate following the pickup process accurately and with fewer delays?"</p>
+                        </div>
+                        <div>
+                            <p class="font-heading font-semibold text-slate-900 text-sm mb-1">Month 3</p>
+                            <p class="text-slate-700 text-base leading-relaxed">Compare pickup errors, customer wait times, or customer complaints before and after training. Any improvement?</p>
+                        </div>
+                        <p class="text-slate-500 text-sm italic">No expensive analytics software. No 50-question surveys. Just a few focused checkpoints that tell you something real.</p>
+                    </div>
+
+                    <h2 class="font-heading font-bold text-2xl text-slate-900 mt-10 mb-4">Why This Matters More Than You Think</h2>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-4">
+                        ATD found that 87% of organizations struggle to isolate the impact of training from other factors. That's true for big companies with big data teams. For SMBs, the challenge is even steeper - smaller teams, fewer resources, and data spread across disconnected systems.
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8">
+                        But you don't need to measure everything perfectly. You just need to measure something meaningful. If you can track confidence, observe behavior changes, and watch a few key business metrics, you'll know more than 90% of companies about whether your training is working.
+                    </p>
+
+                    <!-- The Takeaway -->
+                    <div class="border-l-4 border-brand-500 pl-6 my-12">
+                        <h2 class="font-heading font-bold text-xl text-slate-900 mb-3">The Takeaway</h2>
+                        <p class="text-lg text-slate-700 leading-relaxed">
+                            Stop asking "did they finish?" and start asking "did anything change?" Completion is a starting point, not a finish line. Even a few simple, well-timed questions can give you a dramatically clearer picture of whether your training investment is paying off.
+                        </p>
+                    </div>
+
+                    <!-- Sources -->
+                    <details class="mt-12 border-t border-slate-100 pt-6">
+                        <summary class="text-sm font-semibold text-slate-500 hover:text-slate-700 transition-colors flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            Sources
+                        </summary>
+                        <ul class="mt-4 space-y-2 text-xs text-slate-400 leading-relaxed">
+                            <li>Training Orchestra, "80+ Corporate Training Statistics that Matter for 2026," 2026 — <a href="https://trainingorchestra.com/employee-training-trends/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition-colors underline">trainingorchestra.com</a></li>
+                            <li>The Learning Guild, "Confidence, Knowledge, and Mastery: Better Learning Assessments" — <a href="https://www.learningguild.com/articles/confidence-knowledge-and-mastery-better-learning-assessments" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition-colors underline">learningguild.com</a></li>
+                            <li>ATD, "Measuring Impact: Using Data to Understand Learning Programs," 2023 — <a href="https://www.td.org/content/press-release/atd-research-measuring-learning-program-effectiveness-is-challenging" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition-colors underline">td.org</a></li>
+                            <li>Alliger, Tannenbaum, Bennett, Traver &amp; Shotland, "A Meta-Analysis of the Relations Among Training Criteria," <em>Personnel Psychology</em>, Vol. 50(2), 1997 — <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1744-6570.1997.tb00911.x" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition-colors underline">onlinelibrary.wiley.com</a></li>
+                        </ul>
+                    </details>
+
+                </div>
+
+            </div>
+        </article>
+
+        <!-- Soft CTA -->
+        <section class="pb-8 lg:pb-12">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="fade-up bg-brand-50 border border-brand-100 rounded-2xl px-8 py-7 text-center">
+                    <p class="text-base text-slate-700 leading-relaxed">
+                        Humaloom tracks what matters—not just completion, but confidence, retention, and on-the-job impact. <a href="https://calendly.com/rami-humaloom/meet-with-humaloom" target="_blank" rel="noopener noreferrer" class="text-brand-500 font-semibold hover:text-brand-700 transition-colors">Book a demo to learn more &rarr;</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Posts -->
+        <section class="py-12 lg:py-16 bg-slate-50">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="fade-up mb-8">
+                    <h2 class="font-heading font-semibold text-xs text-slate-400 uppercase tracking-widest">Related Articles</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6 stagger">
+
+                    <article class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                        <div class="h-36 overflow-hidden">
+                            <img src="/assets/images/blog/training-fails-unsplash.jpg" alt="Why SMB training programs fail" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="inline-flex items-center self-start bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-3">SMB Training</div>
+                            <h3 class="font-heading font-semibold text-base text-slate-900 mb-2 leading-snug">Why SMB Training Programs Fail: 5 Common Reasons</h3>
+                            <div class="flex items-center gap-3 text-xs text-slate-400 mb-4 mt-auto pt-3">
+                                <span>March 2, 2026</span>
+                                <span>&middot;</span>
+                                <span>5 min read</span>
+                            </div>
+                            <a href="why-smb-training-fails.html" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
+                                Read Article
+                                <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="fade-up card-hover bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                        <div class="h-36 overflow-hidden">
+                            <img src="/assets/images/blog/nathan-dumlao-3-coffees-unsplash.jpg" alt="How SMBs can fix training" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="inline-flex items-center self-start bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-3">SMB Training</div>
+                            <h3 class="font-heading font-semibold text-base text-slate-900 mb-2 leading-snug">How Businesses Can Fix Training Without Making It Longer or More Expensive</h3>
+                            <div class="flex items-center gap-3 text-xs text-slate-400 mb-4 mt-auto pt-3">
+                                <span>March 9, 2026</span>
+                                <span>&middot;</span>
+                                <span>5 min read</span>
+                            </div>
+                            <a href="fix-smb-training.html" class="inline-flex items-center text-brand-500 font-semibold text-sm hover:text-brand-700 transition-colors self-start">
+                                Read Article
+                                <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 pb-8 border-b border-slate-800">
+                <div>
+                    <a href="../index.html" class="flex items-center gap-2 mb-4">
+                        <img src="/assets/images/logo.jpeg" alt="" class="w-8 h-8 rounded-lg" aria-hidden="true">
+                        <span class="font-heading font-bold text-lg text-white">Humaloom</span>
+                    </a>
+                    <p class="text-sm leading-relaxed">Elevate your employees. Elevate your business. Elevate your bottom line.</p>
+                </div>
+                <div>
+                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Quick Links</h4>
+                    <nav class="flex flex-col gap-2" aria-label="Footer navigation">
+                        <a href="../index.html" class="text-sm hover:text-white transition-colors">Home</a>
+                        <a href="../how-it-works.html" class="text-sm hover:text-white transition-colors">How It Works</a>
+                        <a href="../about.html" class="text-sm hover:text-white transition-colors">About</a>
+                        <a href="../blog.html" class="text-sm hover:text-white transition-colors">Blog</a>
+                        <a href="../contact.html" class="text-sm hover:text-white transition-colors">Contact</a>
+                        <a href="https://sthumaloompublic01.blob.core.windows.net/legal-documents/humaloom-privacy-policy.html" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/company/humaloom/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="LinkedIn">
+                            <svg class="w-4 h-4 text-slate-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm mt-4">contact@humaloom.ai</p>
+                </div>
+            </div>
+            <div class="pt-6 text-center">
+                <p class="text-xs text-slate-500">&copy; <span id="footer-year"></span> Humaloom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const drawerClose = document.getElementById('drawer-close');
+
+        function openDrawer() {
+            mobileDrawer.classList.add('open');
+            drawerOverlay.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDrawer() {
+            mobileDrawer.classList.remove('open');
+            drawerOverlay.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openDrawer);
+        drawerClose.addEventListener('click', closeDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
