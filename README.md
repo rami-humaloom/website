@@ -4,13 +4,15 @@ Static marketing site for Humaloom. Pure HTML + Tailwind CSS.
 
 ## Local development
 
-Open any `.html` file directly in a browser, or serve the directory:
+To run the full stack locally (static site + API, with `/api/*` proxied to the Azure Function):
 
 ```bash
-npx serve . -l 59000
+npm run dev
 ```
 
-To preview the exact production artifact (what gets deployed to Azure):
+This builds the site, then starts the Azure Static Web Apps emulator on port 4280. The contact and subscribe forms work end-to-end in this mode.
+
+To preview the static site only (no API):
 
 ```bash
 npm run build
@@ -52,6 +54,8 @@ Each page has a `<style>` block in `<head>` for non-Tailwind styles (animations,
 
 The contact form posts to an Azure Function in `api/`. To run it locally we installed the [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local) with brew.
 
+`@azure/static-web-apps-cli` is included as a dev dependency so that `npm run dev` can proxy `/api/*` requests to the local function. Without it, the static server and the function run on different ports and the forms can't reach the API.
+
 1. We created `api/local.settings.json` (gitignored) with our Postmark token.
 
 2. Start the function:
@@ -73,6 +77,17 @@ cd api && npm install && func start
 ```
 
 Keep `"website"` as an empty string — it's a honeypot field used to filter bots, and a non-empty value will silently discard the submissio, and return 200.
+
+## Blog images
+
+Blog hero images come from [Unsplash](https://unsplash.com/s/photos/budget?license=free) — filter by **Free** license. Download the full-size image, name it descriptively (e.g. `kelly-sikkema-3-Tc_5LROrM-unsplash.jpg`), and place it in `assets/images/blog/`. See the "Adding a New Blog Post" section in `CLAUDE.md` for where to reference it in the post and listing card.
+
+Before adding the image, resize it to match the other images in `assets/images/blog/` using Preview on Mac:
+
+1. Double-click the image to open it in Preview.
+2. Click **Tools** in the top menu bar.
+3. Select **Adjust Size...** from the dropdown.
+4. Set the width to match the existing blog images and click **OK**.
 
 ## Deploying
 
