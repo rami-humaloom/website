@@ -161,9 +161,9 @@
             </div>
         </section>
 
-        <!-- Hero Image (insert image here) -->
+        <!-- Hero Image -->
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-            <!-- Hero image goes here -->
+            <img src="/assets/images/blog/kelly-sikkema-3-Tc_5LROrM-unsplash.jpg" alt="Rethinking the training model" class="w-full rounded-2xl object-cover max-h-96">
         </div>
 
         <!-- Article Body -->
@@ -242,13 +242,31 @@
             </div>
         </article>
 
-        <!-- Soft CTA -->
+        <!-- Subscribe CTA -->
         <section class="pb-8 lg:pb-12">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="fade-up bg-brand-50 border border-brand-100 rounded-2xl px-8 py-7 text-center">
-                    <p class="text-base text-slate-700 leading-relaxed">
-                        Want to see how companies like yours are rethinking training from the ground up? <a href="../../contact.html" class="text-brand-500 font-semibold hover:text-brand-700 transition-colors">Sign up for Humaloom updates and get practical ideas delivered to your inbox &rarr;</a>
-                    </p>
+                <div class="fade-up bg-brand-50 border border-brand-100 rounded-2xl px-8 py-8 text-center">
+                    <p class="text-lg font-semibold text-slate-800 mb-2">See how modern teams are rethinking training from the ground up</p>
+                    <p class="text-base text-slate-600 mb-1">Sign up for Humaloom updates and get the next article delivered to your inbox.</p>
+                    <p class="text-base text-slate-600 mb-6">No spam — we send 1–2 emails a month.</p>
+
+                    <div id="subscribe-form">
+                        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                            <input type="email" id="subscribe-email"
+                                class="flex-1 px-4 py-3 border border-slate-200 rounded-xl text-slate-800 bg-white placeholder-slate-400 outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition-all"
+                                placeholder="you@company.com">
+                            <button type="button" id="subscribe-btn"
+                                class="px-6 py-3 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-all shadow-lg shadow-brand-500/20 whitespace-nowrap">
+                                Get the Next Article
+                            </button>
+                        </div>
+                        <p class="hidden mt-2 text-sm text-red-500" id="subscribe-email-error">Please enter a valid email address.</p>
+                        <p class="hidden mt-2 text-sm text-red-500" id="subscribe-submit-error">Something went wrong. Please try again.</p>
+                    </div>
+
+                    <div id="subscribe-success" class="hidden">
+                        <p class="text-base font-semibold text-accent-600">You're in! The next article is coming your way.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -377,6 +395,55 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        (function () {
+            const subscribeBtn = document.getElementById('subscribe-btn');
+            const subscribeEmailInput = document.getElementById('subscribe-email');
+            const subscribeSuccess = document.getElementById('subscribe-success');
+            const subscribeForm = document.getElementById('subscribe-form');
+
+            function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+            subscribeBtn.addEventListener('click', async function () {
+                const email = subscribeEmailInput.value.trim();
+                document.getElementById('subscribe-email-error').classList.add('hidden');
+                document.getElementById('subscribe-submit-error').classList.add('hidden');
+
+                if (!email || !validateEmail(email)) {
+                    document.getElementById('subscribe-email-error').classList.remove('hidden');
+                    return;
+                }
+
+                subscribeBtn.disabled = true;
+                subscribeBtn.textContent = 'Sending...';
+
+                try {
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: 'Newsletter Subscriber',
+                            email,
+                            company: '',
+                            message: 'Please add me to the Humaloom updates list.',
+                            website: '',
+                        }),
+                    });
+                    if (res.ok) {
+                        subscribeForm.classList.add('hidden');
+                        subscribeSuccess.classList.remove('hidden');
+                    } else {
+                        document.getElementById('subscribe-submit-error').classList.remove('hidden');
+                        subscribeBtn.disabled = false;
+                        subscribeBtn.textContent = 'Get the Next Article';
+                    }
+                } catch {
+                    document.getElementById('subscribe-submit-error').classList.remove('hidden');
+                    subscribeBtn.disabled = false;
+                    subscribeBtn.textContent = 'Get the Next Article';
+                }
+            });
+        })();
     </script>
 
 </body>
