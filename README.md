@@ -4,16 +4,27 @@ Static marketing site for Humaloom. Pure HTML + Tailwind CSS.
 
 ## Local development
 
-To run the full stack locally (static site + API, with `/api/*` proxied to the Azure Function):
+For active development, run two terminals in parallel:
 
+**Terminal 1** — auto-rebuilds CSS on save:
 ```bash
-npm run dev
+npm run watch
 ```
 
-This builds the site, then starts the Azure Static Web Apps emulator on port 4280. The contact and subscribe forms work end-to-end in this mode.
+**Terminal 2** — serves source files directly and proxies `/api/*` to the Azure Function:
+```bash
+npx swa start . --api-location api
+```
 
-To preview the static site only (no API):
+HTML changes are visible on refresh immediately. CSS changes are picked up automatically by watch. The contact and subscribe forms work end-to-end in this mode. Open [http://localhost:4280](http://localhost:4280) in your browser.
 
+To preview the exact production artifact before deploying (builds `dist/` and serves it with API):
+
+```bash
+npm run preview
+```
+
+To preview the static site only (no API): 
 ```bash
 npm run build
 npx serve dist -l 59000
@@ -54,7 +65,7 @@ Each page has a `<style>` block in `<head>` for non-Tailwind styles (animations,
 
 The contact form posts to an Azure Function in `api/`. To run it locally we installed the [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local) with brew.
 
-`@azure/static-web-apps-cli` is included as a dev dependency so that `npm run dev` can proxy `/api/*` requests to the local function. Without it, the static server and the function run on different ports and the forms can't reach the API.
+`@azure/static-web-apps-cli` is included as a dev dependency so that `npx swa start` can proxy `/api/*` requests to the local function. Without it, the static server and the function run on different ports and the forms can't reach the API.
 
 1. We created `api/local.settings.json` (gitignored) with our Postmark token.
 
@@ -76,7 +87,7 @@ cd api && npm install && func start
 }
 ```
 
-Keep `"website"` as an empty string — it's a honeypot field used to filter bots, and a non-empty value will silently discard the submissio, and return 200.
+Keep `"website"` as an empty string — it's a honeypot field used to filter bots, and a non-empty value will silently discard the submission and return 200.
 
 ## Blog images
 
