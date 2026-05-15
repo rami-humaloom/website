@@ -33,6 +33,7 @@
         .form-error { display: none; color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; }
         .form-error.show { display: block; }
     </style>
+    <script src="/assets/js/analytics.js"></script>
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
@@ -265,7 +266,14 @@
             document.getElementById(id).classList.remove('show');
         }
 
+        const formContainer = document.getElementById('contact-form');
+        let formStartFired = false;
+        formContainer.addEventListener('focusin', () => {
+            if (!formStartFired) { formStartFired = true; gtag('event', 'contact_form_start'); }
+        });
+
         submitBtn.addEventListener('click', async function() {
+            gtag('event', 'contact_form_submit_click');
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const company = document.getElementById('company').value.trim();
@@ -294,6 +302,7 @@
                     body: JSON.stringify({ name, email, company, message, website }),
                 });
                 if (res.ok) {
+                    gtag('event', 'generate_lead', { method: 'contact_form' });
                     document.querySelectorAll('#contact-form .space-y-5')[0].style.display = 'none';
                     successMsg.classList.remove('hidden');
                 } else {

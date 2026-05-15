@@ -103,3 +103,20 @@ Before adding the image, resize it to match the other images in `assets/images/b
 ## Deploying
 
 Merge `main` to the `prod-env` branch. GitHub Actions deploys to Azure Static Web Apps automatically.
+
+# Google Analytics Setup
+
+- Humaloom’s Google Analytics 4 `GA4` setup was created for the website humaloom.ai as a web data stream with Enhanced Measurement enabled, allowing baseline tracking such as page views, scrolls, outbound clicks, and other automatic interaction data. 
+- Go to [Google Analytics](https://analytics.google.com/) with teh Humaloom Gmail login in order to access the collected data.
+- We have an if condition to fire analytics events only on the Production website, so the analytics won't be polluted by any localhost traffic.
+
+## Humaloom GA4 Events
+
+| Event | Trigger | Why it matters |
+|-------|---------|----------------|
+| `demo_booking_click`        | Click any Calendly link                                  | Primary conversion; most important metric |
+| `cta_click`                 | Click "Lock in Special Pricing" hero CTA on `index.html` | Secondary conversion intent signal |
+| `contact_form_start`        | First focusin on any contact form field                  | Measures form engagement vs. abandonment |
+| `contact_form_submit_click` | Click "Send Message" button                              | Captures intent before validation; reveals validation drop-off |
+| `generate_lead`             | Successful POST to `/api/contact` (`res.ok`)             | Confirmed lead — highest-value contact funnel event |
+| `blog_article_click`        | Click any article card on `blog.html`                    | Shows which topics attract readers |

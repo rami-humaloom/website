@@ -19,7 +19,8 @@ Pure static HTML. Tailwind CSS is compiled locally via the CLI — there is no r
 - `tailwind.config.js` — Tailwind theme config (colors, fonts)
 - `assets/css/input.css` — Tailwind directives (`@tailwind base/components/utilities`)
 - `assets/css/output.css` — **Generated, not committed** (gitignored). Run `npm run build` to regenerate after changing HTML classes.
-- `dist/` — **Generated, not committed** (gitignored). Assembled by `npm run build`. Contains only the files served in production (HTML pages, `output.css`, images, `staticwebapp.config.json`).
+- `assets/js/analytics.js` — Shared GA4 snippet (Measurement ID: G-X50SZDRJ36). Loaded by every page via `<script src="/assets/js/analytics.js"></script>` in `<head>`. Only fires on `humaloom.ai` / `www.humaloom.ai`; defines a no-op `window.gtag` on all other hosts so custom event calls never throw.
+- `dist/` — **Generated, not committed** (gitignored). Assembled by `npm run build`. Contains only the files served in production (HTML pages, `output.css`, `analytics.js`, images, `staticwebapp.config.json`).
 - `package.json` — Dev dependency (`tailwindcss ^3`) and build/watch scripts
 
 **Styling:** Tailwind CSS built locally via the Tailwind CLI. Each HTML file links to `/assets/css/output.css`. The shared theme config lives in `tailwind.config.js` — do not inline Tailwind config in HTML files.
@@ -33,7 +34,7 @@ Pure static HTML. Tailwind CSS is compiled locally via the CLI — there is no r
 
 **Animations:** Scroll-triggered fade-up via IntersectionObserver + CSS classes (`.fade-up`, `.fade-up.visible`). Stagger delays applied via `.stagger > .fade-up:nth-child(n)` selectors.
 
-**JS:** Vanilla JavaScript only, inlined in each page's `<script>` block at the bottom. Each page handles its own mobile drawer toggle and scroll animations independently.
+**JS:** Vanilla JavaScript only. Each page has an inline `<script>` block at the bottom handling its own mobile drawer toggle and scroll animations. Shared analytics logic lives in `assets/js/analytics.js` and is referenced from every page's `<head>` — do not inline a second GA snippet.
 
 ## Deployment
 
@@ -103,3 +104,4 @@ Blog post pages live in `blog/` and follow a consistent structure. To add a new 
 - The `Content-Security-Policy` in `staticwebapp.config.json` restricts external resources. If adding new external scripts, fonts, or image domains, update the CSP accordingly.
 - Navigation active state (`nav-link active` class) and mobile drawer active highlighting are hardcoded per page — update them when adding new pages.
 - The footer year is dynamically set via JS: `document.getElementById('footer-year').textContent = new Date().getFullYear()`.
+- **Analytics:** GA4 is wired up via `assets/js/analytics.js` (loaded in every page's `<head>`). It only activates on `humaloom.ai` / `www.humaloom.ai` — all other hosts get a silent no-op shim. Custom events are added in each page's inline `<script>` block by calling `gtag('event', ...)` directly. Current custom events: `demo_booking_click` (index, how-it-works), `cta_click` (index hero), `blog_article_click` (blog.html), `contact_form_start` / `contact_form_submit_click` / `generate_lead` (contact.html). When adding a new page, include `<script src="/assets/js/analytics.js"></script>` in `<head>` — do not add an inline GA snippet.
