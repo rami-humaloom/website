@@ -37,6 +37,7 @@
         .quote-card { position:relative; }
         .quote-card::before { content:'\201C'; font-family:'Poppins',sans-serif; font-size:4rem; line-height:1; color:#c7d2fe; position:absolute; top:12px; left:16px; }
     </style>
+    <script src="/assets/js/analytics.js"></script>
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
@@ -346,6 +347,10 @@
         menuToggle.addEventListener('click',openDrawer);drawerClose.addEventListener('click',closeDrawer);drawerOverlay.addEventListener('click',closeDrawer);
         const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
         document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+        document.querySelectorAll('a[href*="calendly.com"]').forEach(el => {
+            el.addEventListener('click', () => gtag('event', 'demo_booking_click', { event_category: 'conversion' }));
+        });
     </script>
 </body>
 </html>

@@ -84,6 +84,7 @@
             border-radius: 1px;
         }
     </style>
+    <script src="/assets/js/analytics.js"></script>
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
@@ -453,6 +454,10 @@
                 gridHeading.style.display = visibleGridCount === 0 ? 'none' : '';
                 noPostsMessage.classList.toggle('hidden', visibleGridCount > 0 || filter === 'all');
             });
+        });
+
+        document.querySelectorAll('article a[href*="blog/"]').forEach(el => {
+            el.addEventListener('click', () => gtag('event', 'blog_article_click', { article_url: el.href }));
         });
     </script>
 

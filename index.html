@@ -118,6 +118,7 @@
             left: 16px;
         }
     </style>
+    <script src="/assets/js/analytics.js"></script>
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
@@ -181,7 +182,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div class="fade-up">
-                        <a href="contact?message=I%27m%20interested%20in%20the%20Early%20Customer%20Offer%20-%20please%20share%20details%20and%20available%20timelines." class="inline-flex items-center gap-2 bg-accent-50 text-accent-700 text-sm font-medium px-3 py-1.5 rounded-full mb-6 border border-accent-200 hover:bg-accent-100 hover:border-accent-400 transition-colors">
+                        <a href="contact.html?message=Locking%20in%20Special%20Pricing%20-%20Enter%20your%20details%20to%20claim%20your%20exclusive%20offer." class="inline-flex items-center gap-2 bg-accent-50 text-accent-700 text-sm font-medium px-3 py-1.5 rounded-full mb-6 border border-accent-200 hover:bg-accent-100 hover:border-accent-400 transition-colors">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                             Lock in Special Pricing – Get our Early Customer Offer
                             <svg class="w-3.5 h-3.5 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -518,6 +519,14 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href*="calendly.com"]').forEach(el => {
+            el.addEventListener('click', () => gtag('event', 'demo_booking_click', { event_category: 'conversion' }));
+        });
+        const heroCta = document.querySelector('a[href*="contact.html"]');
+        if (heroCta) {
+            heroCta.addEventListener('click', () => gtag('event', 'cta_click', { event_category: 'conversion', cta_label: 'hero_special_pricing' }));
+        }
     </script>
 </body>
 </html>
